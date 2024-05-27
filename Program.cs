@@ -1,16 +1,37 @@
-﻿namespace programa {
-    public class Program {
-        static void Main(){
-            int num, num2;
+﻿namespace Programa;
 
-            Console.WriteLine("Digite um número: ");
-            num = Convert.ToInt32(Console.ReadLine());
+public class Program {
+    public static void Main(){
+        int op = 0;
 
-            Console.WriteLine("Digite outro número: ");
-            num2 = Convert.ToInt32(Console.ReadLine());
+        do {
+            Console.WriteLine("[1] - Para criar");
+            Console.WriteLine("[2] - Para alterar");
+            Console.WriteLine("[3] - Para deletar");
+            Console.WriteLine("[4] - Para listar");
+            Console.WriteLine("[5] - Para sair/encerrar o programa");
+            op = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("O valor digitado foi " + (num + num2));
-            Console.WriteLine($"O valor digitado foi {num + num2}");
-        }
+            switch(op) {
+                case 1:
+                    ViewPessoa.Criar();
+                    break;
+                case 2:
+                    ViewPessoa.Alterar();
+                    break;
+                case 3:
+                    ViewPessoa.Deletar();
+                    break;
+                case 4:
+                    ViewPessoa.Listar();
+                    break;
+                case 5:
+                    Console.WriteLine("Encerrando o programa");
+                    break;
+                default:
+                    Console.WriteLine("Opção inválida");
+                    break;
+            }
+        }while (op != 5);
     }
 }
